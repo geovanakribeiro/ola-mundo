@@ -1,0 +1,24 @@
+p {
+    padding: 10px 25px;
+    border: 1px solid #ccc;
+    margin: 0px 35px 10px 35px;
+    /* em cima, direita, embaixo, esqueda */
+    border-radius: 5px;
+    box-shadow: 1px 2px 3px #ccc;
+    cursor: pointer;
+    transition: 0.3s;
+
+}
+
+/* Pintar um sim e um não */
+p:nth-child(odd) {
+    background-color: aliceblue;
+}
+
+/* Quando passar o mouse muda de cor */
+P:hover {
+    background-color: cornflowerblue;
+    transform: translateX(20);
+    /* translateX da mexe para direita */
+
+}
