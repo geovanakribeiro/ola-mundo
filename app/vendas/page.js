@@ -16,7 +16,12 @@ function Vendas() {
     const [listaUsuarios, alteraListaUsuarios] = useState([])
     const [listaLivros, alteraListaLivros] = useState([])
     
+    //variável para os filtros de pesquisa
     const [inputPesquisaPagamento, alteraInputPesquisaPagamento] = useState()
+    const [inputPesquisaObservacao, alteraInputPesquisaObservacao] = useState()
+    const [inputPesquisaData, alteraInputPesquisaData] = useState()
+    const [inputPesquisaIdUsuario, alteraInputPesquisaIdUsuario] = useState()
+    const [inputPesquisaIdProduto, alteraInputPesquisaIdProduto] = useState()
 
 
 
@@ -118,27 +123,63 @@ function Vendas() {
     async function pesquisaPagamento(){
         const { data, error } = await supabase
           .from('vendas')
-          .select()
+          .select(`*,id_usuario(*),id_livro(*)`)
           .eq('pagamento', inputPesquisaPagamento)
         
         alteraListaVendas(data)
     }
     async function pesquisaObservacao(){
-
+        const { data, error } = await supabase
+          .from('vendas')
+          .select(`*,id_usuario(*),id_livro(*)`)
+          .ilike('observacao', "%" + inputPesquisaObservacao + "%")
+        
+        alteraListaVendas(data)
     }
     async function pesquisaData(){
-
+        const { data, error } = await supabase
+          .from('vendas')
+          .select(`*,id_usuario(*),id_livro(*)`)
+          .gt('created_at', inputPesquisaData + " 00:00:00+00")
+          .lt('created_at', inputPesquisaData + " 23:59:00+00")
+        
+        alteraListaVendas(data)
     }
     async function pesquisaIdUsuario(){
-
+        const { data, error } = await supabase
+          .from('vendas')
+          .select(`*,id_usuario(*),id_livro(*)`)
+          .eq('id_usuario', inputPesquisaIdUsuario)
+        
+        alteraListaVendas(data)
     }
     async function pesquisaIdProduto(){
-
+        const { data, error } = await supabase
+          .from('vendas')
+          .select(`*,id_usuario(*),id_livro(*)`)
+          .eq('id_livro', inputPesquisaIdProduto)
+        
+        alteraListaVendas(data)
     }
     async function pesquisaMaiorVenda(){
+        const { data, error } = await supabase
+          .from('vendas')
+          .select(`*,id_usuario(*),id_livro(*)`)
+          .order('quantidade', { ascending: false })
+          .limit(1)
+
+          alteraListaVendas(data)
 
     }
     async function pesquisaVendasHoje(){
+          const { data, error } = await supabase
+          .from('vendas')
+          .select(`*,id_usuario(*),id_livro(*)`)
+          .gt('created_at', new Date().toISOString().split("T")[0] + " 00:00:00+00")
+          .lt('created_at', new Date().toISOString().split("T")[0] + " 23:59:00+00")
+        
+        alteraListaVendas(data)
+
 
     }
 
@@ -204,14 +245,22 @@ function Vendas() {
             </form>
             <hr/>
 
-            <h2>Filtros</h2>
-            <p>Pesquisar pagamento<input onChange={e => alteraInputPesquisaPagamento(e.target.value)}/><button onClick={pesquisaPagamento}>Pesquisar</button></p>
-            <p>Pesquisar observacao<input/><button onClick={pesquisaObservacao}>Pesquisar</button></p>
-            <p>Pesquisar data<input type="date"/><button onClick={pesquisaData}>Pesquisar</button></p>
-            <p>Pesquisar ID usuario<input/><button onClick={pesquisaIdUsuario}>Pesquisar</button></p>
-            <p>Pesquisar ID produto<input/><button onClick={pesquisaIdProduto}>Pesquisar</button></p>
-            <p>Filtrar por maiores vendas<button onClick={pesquisaMaiorVenda}>Pesquisar</button></p>
-            <p>Filtrar por vendas feitas hoje<button onClick={pesquisaVendasHoje}>Pesquisar</button></p>
+                <h2>Filtros</h2>
+                
+                <p>Pesquisar pagamento<input onChange={e => alteraInputPesquisaPagamento(e.target.value)}/><button onClick={pesquisaPagamento}>Pesquisar</button></p>
+
+                <p>Pesquisar observacao<input onChange={e => alteraInputPesquisaObservacao(e.target.value)}/><button onClick={pesquisaObservacao}>Pesquisar</button></p>
+
+                <p>Pesquisar data<input type="date" onChange={e => alteraInputPesquisaData(e.target.value)} /><button onClick={pesquisaData}>Pesquisar</button></p>
+
+                <p>Pesquisar ID usuario<input onChange={e => alteraInputPesquisaIdUsuario(e.target.value)}/><button onClick={pesquisaIdUsuario}>Pesquisar</button></p>
+
+                <p>Pesquisar ID produto<input onChange={e => alteraInputPesquisaIdProduto(e.target.value)}/><button onClick={pesquisaIdProduto}>Pesquisar</button></p>
+
+                <p>Filtrar por maiores vendas<button onClick={pesquisaMaiorVenda}>Pesquisar</button></p>
+
+                <p>Filtrar por vendas feitas hoje<button onClick={pesquisaVendasHoje}>Pesquisar</button></p>
+
 
             <table class="table">
                 <tr>
