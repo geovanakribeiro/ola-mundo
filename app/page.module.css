@@ -1,0 +1,353 @@
+/* Monochromatic Purple Gradient Theme */
+.pageContainer {
+  font-family: 'Inter', system-ui, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f5ff; /* Very light purple */
+  color: #2b1b4d; /* Dark purple */
+  overflow-x: hidden;
+}
+
+/* Hero Section */
+.heroSection {
+  background: linear-gradient(135deg, #1b093f 0%, #3d1b7a 50%, #6830c2 100%);
+  color: white;
+  text-align: center;
+  padding: 6rem 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroContent {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.heroBadge {
+  background-color: rgba(255, 255, 255, 0.15);
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(5px);
+}
+
+.heroTitle {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.heroDesc {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: #e5d9f2;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap; /* Important for responsiveness */
+}
+
+.btnPrimary {
+  background: white;
+  color: #4a1d96;
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnPrimary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  background: #f0e6ff;
+}
+
+.btnOutline {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btnOutline:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-3px);
+}
+
+/* Benefits Section */
+.benefitsSection {
+  padding: 6rem 1rem;
+  background-color: white;
+}
+
+.sectionHeader {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 4rem auto;
+}
+
+.sectionTitle {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: #2b1b4d;
+}
+
+.sectionSubtitle {
+  font-size: 1.1rem;
+  color: #6c5b96;
+  line-height: 1.6;
+}
+
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.benefitCard {
+  background: white;
+  border-radius: 20px;
+  padding: 2.5rem;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(74, 29, 150, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #f0e6ff;
+}
+
+.benefitCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(74, 29, 150, 0.12);
+}
+
+.benefitCard.cardPrimary {
+  background: linear-gradient(135deg, #4a1d96 0%, #7e22ce 100%);
+  color: white;
+  border: none;
+  box-shadow: 0 15px 35px rgba(74, 29, 150, 0.25);
+}
+
+.benefitIcon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #f3ebff;
+  color: #6830c2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  margin: 0 auto 1.5rem auto;
+}
+
+.cardPrimary .benefitIcon {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+.benefitTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.benefitText {
+  color: #6c5b96;
+  line-height: 1.6;
+}
+
+.cardPrimary .benefitText {
+  color: #e5d9f2;
+}
+
+/* Brands Area */
+.brandsSection {
+  padding: 4rem 1rem;
+  background-color: #fcfaff;
+  border-top: 1px solid #f0e6ff;
+  border-bottom: 1px solid #f0e6ff;
+}
+
+.brandsContainer {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.brandsTitle {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #8c7ba8;
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+.brandsFlex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: clamp(2rem, 5vw, 4rem);
+  color: #b5a8cc;
+}
+
+.brandIcon {
+  font-size: 2.8rem;
+  opacity: 0.7;
+  transition: opacity 0.3s, color 0.3s;
+}
+
+.brandIcon:hover {
+  opacity: 1;
+  color: #6830c2;
+}
+
+/* Products Area */
+.productsSection {
+  padding: 6rem 1rem;
+  background-color: white;
+  flex-grow: 1;
+}
+
+.productsContainer {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: #f8f5ff;
+  border-radius: 24px;
+  padding: clamp(1rem, 5vw, 4rem);
+  box-shadow: inset 0 0 30px rgba(74, 29, 150, 0.05);
+  border: 1px solid #f0e6ff;
+}
+
+/* CTA Section */
+.ctaSection {
+  background: linear-gradient(135deg, #1b093f 0%, #3d1b7a 50%, #6830c2 100%);
+  color: white;
+  text-align: center;
+  padding: 6rem 1rem;
+  border-radius: 40px 40px 0 0;
+  max-width: 95%;
+  margin: 0 auto;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.ctaTitle {
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.ctaDesc {
+  font-size: 1.2rem;
+  color: #e5d9f2;
+  margin-bottom: 2.5rem;
+}
+
+/* Footer Section */
+.footer {
+  background: #12052b;
+  color: #8c7ba8;
+  padding: 4rem 1rem 2rem 1rem;
+}
+
+.footerContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footerGrid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footerInfo {
+  max-width: 400px;
+}
+
+.footerTitle {
+  color: white;
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.socialLinks a {
+  color: #8c7ba8;
+  font-size: 1.5rem;
+  transition: color 0.3s;
+}
+
+.socialLinks a:hover {
+  color: white;
+}
+
+.footerDivider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 2rem 0;
+}
+
+.footerBottom {
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* Responsiveness specifics missing from standard flex/grid */
+@media (max-width: 768px) {
+  .ctaSection {
+    border-radius: 30px 30px 0 0;
+    max-width: 100%; /* Full screen on mobile */
+  }
+
+  .footerGrid {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+  }
+  
+  .footerInfo {
+    margin: 0 auto;
+  }
+
+  .socialLinks {
+    justify-content: center;
+  }
+}
